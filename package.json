@@ -1,0 +1,19 @@
+{
+  "name": "turbofan-zero-jitter",
+  "version": "1.0.0",
+  "description": "Zero-Jitter Order Validator - V8 TurboFan warmup PoC",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node --allow-natives-syntax src/index.js",
+  },
+  "keywords": [
+    "V8",
+    "TurboFan",
+    "JIT",
+    "Low-Latency",
+    "JavaScript"
+  ],
+  "author": "Ian",
+  "license": "MIT"
+}
