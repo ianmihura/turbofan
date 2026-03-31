@@ -10,6 +10,7 @@ import fs from 'fs';
  * @param {string} fileName 
  */
 export function generateHtmlReport(title, coldData, warmData, deoptData = null, fileName = 'report.html') {
+    // Filter outliers: requests above 30k nanosec are not related to the logic, maybe GC or other housekeeping task
     const filter = (arr) => arr ? JSON.stringify(Array.from(arr).filter(v => v <= 30_000)) : 'null';
 
     const coldJson = filter(coldData);
