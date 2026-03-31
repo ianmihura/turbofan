@@ -118,12 +118,48 @@ export function generateHtmlReport(title, coldData, warmData, deoptData = null, 
             background: #38bdf8;
             color: #0f172a;
         }
+
+        footer {
+            padding-top: 3rem;
+            padding-bottom: 1rem;
+            text-align: center;
+            font-size: 0.75rem;
+            color: #64748b;
+            font-family: 'JetBrains Mono', 'Fira Code', monospace;
+            letter-spacing: 0.1em;
+        }
+        footer a {
+            transition: color 0.2s;
+            text-decoration: none;
+            color: inherit;
+        }
+        footer a:hover {
+            color: #60a5fa;
+        }
+        .footer-github {
+            text-decoration: underline;
+            text-decoration-color: #334155;
+            text-underline-offset: 4px;
+        }
+        
+        .repo-link {
+            color: #38bdf8;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+        .repo-link:hover {
+            border-bottom-color: #38bdf8;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>${title}</h1>
-        <p>V8 TurboFan JIT Optimization Analysis (Latency in Nanoseconds)</p>
+        <p>
+            V8 TurboFan JIT Optimization Analysis (Latency in Nanoseconds) 
+            </p>
+            <a href="https://github.com/ianmihura/turbofan" target="_blank" class="repo-link">github.com/ianmihura/turbofan</a>
         
         <div class="actions">
             <button class="btn" onclick="resetChartZoom()">Reset Zoom</button>
@@ -137,6 +173,15 @@ export function generateHtmlReport(title, coldData, warmData, deoptData = null, 
             <!-- Stats populated by JS -->
         </div>
     </div>
+
+    <footer class="pt-12 text-center text-xs text-slate-500 font-mono tracking-widest pb-4">
+        <p>
+            Made by <a href="https://ianmihura.github.io" target="_blank"
+                class="hover:text-blue-400 transition-colors duration-200">Ian Mihura</a>
+            — <a href="https://github.com/ianmihura" target="_blank"
+                class="hover:text-blue-400 transition-colors duration-200 underline decoration-slate-700 underline-offset-4 footer-github">GitHub</a>
+        </p>
+    </footer>
 
     <script>
         const cold = ${coldJson};
